@@ -1,11 +1,14 @@
 	package com.br.aula.aula02.entities;
 	
 	import jakarta.persistence.*;
+
 	
 	import java.io.Serializable;
 	import java.util.ArrayList;
 	import java.util.List;
 	import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 	@Entity
 	@Table(name= "tb_user")
 	public class User  implements Serializable {
@@ -15,7 +18,7 @@
 	    private String nome;
 	    private String email;
 	    private String password;
-	    
+	    @JsonIgnore
 	    @OneToMany(mappedBy = "client")
 	    private List<Order> orders = new ArrayList<>();
 	    
