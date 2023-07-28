@@ -1,7 +1,7 @@
 package com.br.aula.aula02.entities.resource;
 
-import com.br.aula.aula02.entities.Order;
-import com.br.aula.aula02.services.OrderService;
+import com.br.aula.aula02.entities.Category;
+import com.br.aula.aula02.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/orders")
-public class OrderResource {
+@RequestMapping(value = "/Categorys")
+public class CategoryResource {
 
     @Autowired
-    private OrderService serv;
+    private CategoryService serv;
 
     @GetMapping
-    public ResponseEntity<List<Order>> findALL() {
-        List<Order> list = serv.findAll();
+    public ResponseEntity<List<Category>> findALL() {
+        List<Category> list = serv.findAll();
         return ResponseEntity.ok().body(list);
     }
     @GetMapping(value="/{id}")
-    public ResponseEntity<Order> findById(@PathVariable Long id){
-       Order obj = serv.findById(id);
+    public ResponseEntity<Category> findById(@PathVariable Long id){
+       Category obj = serv.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }
