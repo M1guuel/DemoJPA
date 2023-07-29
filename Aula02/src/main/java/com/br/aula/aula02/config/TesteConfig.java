@@ -44,8 +44,14 @@ public class TesteConfig implements CommandLineRunner {
 		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, ""); 
 		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, ""); 
 		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""); 
-		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, ""); 
-		
+		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
+		productRepositories.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+		p1.getCategory().add(cat2);
+		p2.getCategory().add(cat3);
+		p2.getCategory().add(cat1);
+		p3.getCategory().add(cat3);
+		p4.getCategory().add(cat3);
+		p5.getCategory().add(cat2);
 
 		User u1 = new User("Maria", "Maria@gmail.com", "1234456");
 		User u2 = new User("Pedro", "Exemple2@gmail.com", "123456");
