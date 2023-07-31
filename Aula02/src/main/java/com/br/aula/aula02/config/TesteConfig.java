@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.br.aula.aula02.entities.Category;
 import com.br.aula.aula02.entities.Order;
 import com.br.aula.aula02.entities.OrderItem;
+import com.br.aula.aula02.entities.Payment;
 import com.br.aula.aula02.entities.Product;
 import com.br.aula.aula02.entities.User;
 import com.br.aula.aula02.entities.enums.Enums;
@@ -57,7 +58,6 @@ public class TesteConfig implements CommandLineRunner {
 		p3.getCategory().add(cat3);
 		p4.getCategory().add(cat3);
 		p5.getCategory().add(cat2);
-
 		User u1 = new User("Maria", "Maria@gmail.com", "1234456");
 		User u2 = new User("Pedro", "Exemple2@gmail.com", "123456");
 
@@ -76,6 +76,10 @@ public class TesteConfig implements CommandLineRunner {
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); 
 		
 		 orderItemRepositories.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+		 
+		 Payment pay = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		 o1.setPayment(pay);
+		 orderRepositories.save(o1);
 
 	}
 }
